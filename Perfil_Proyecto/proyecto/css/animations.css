@@ -1,0 +1,98 @@
+/* ==========================================================================
+   ANIMATIONS.CSS — Todas las animaciones @keyframes del sitio.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+
+/* Flotación de blobs de fondo */
+@keyframes float1{
+  0%,100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(10vw,8vh) scale(1.15); }
+}
+@keyframes float2{
+  0%,100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(-8vw,-10vh) scale(1.1); }
+}
+
+/* Rotación lenta (anillo de perfil) */
+@keyframes rotateSlow{ to{ transform:rotate(360deg); } }
+
+/* Flotación suave (imagen de perfil) */
+@keyframes floatY{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+/* Pulso de resplandor */
+@keyframes pulseGlow{
+  0%,100%{ opacity:.55; }
+  50%{ opacity:1; }
+}
+
+/* Parpadeo neón sutil (texto/estado) */
+@keyframes neonFlicker{
+  0%,19%,21%,23%,25%,54%,56%,100%{ opacity:1; }
+  20%,22%,24%,55%{ opacity:.4; }
+}
+.flicker{ animation: neonFlicker 6s infinite; }
+
+/* Fade in + subida (usado por reveal genérico vía JS, y de forma directa) */
+@keyframes fadeInUp{
+  from{ opacity:0; transform:translateY(24px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.hero-inner > *{ animation:fadeInUp .9s cubic-bezier(.16,.84,.44,1) both; }
+.hero-inner > *:nth-child(2) > * { animation:fadeInUp .9s cubic-bezier(.16,.84,.44,1) both; }
+
+/* Rebote suave para íconos */
+@keyframes bounceSoft{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-5px); }
+}
+
+/* Efecto shine (barrido de brillo) sobre botones sólidos */
+.btn.solid::after{
+  content:""; position:absolute; top:0; left:-60%; width:40%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+  transform:skewX(-20deg);
+  animation: shine 3.2s ease-in-out infinite;
+}
+@keyframes shine{
+  0%{ left:-60%; }
+  40%,100%{ left:130%; }
+}
+
+/* Efecto ripple para botones circulares al hacer click (clase añadida por JS) */
+.ripple{
+  position:absolute; border-radius:50%; background:rgba(255,255,255,.5);
+  transform:scale(0); animation: rippleAnim .6s ease-out forwards; pointer-events:none;
+}
+@keyframes rippleAnim{
+  to{ transform:scale(3); opacity:0; }
+}
+
+/* Blur reveal (usado en imágenes de galería al cargar) */
+@keyframes blurReveal{
+  from{ filter:blur(14px); opacity:0; }
+  to{ filter:blur(0); opacity:1; }
+}
+.gal-item img{ animation: blurReveal .9s var(--ease) both; }
+
+/* Ecualizador / visualizador de audio */
+@keyframes eqBar{
+  0%,100%{ height:4px; }
+  50%{ height:20px; }
+}
+
+/* Estrellas de fondo parpadeando (generadas por animations.js) */
+@keyframes twinkle{
+  0%,100%{ opacity:.2; }
+  50%{ opacity:1; }
+}
+
+/* Rotacion lenta decorativa para bordes luminosos de tarjetas destacadas */
+@keyframes borderSpin{
+  to{ --angle:360deg; }
+}

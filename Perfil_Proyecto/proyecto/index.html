@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="es" data-theme="overworld">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auronx.777</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Fondo animado: canvas de partículas + blobs de luz -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- Cursor personalizado -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- Audio real (coloca tus mp3 en /music). Si el archivo no existe, el
+     reproductor cae automáticamente a un tono generado — ver music.js -->
+    <audio id="audio-player" preload="auto" crossorigin="anonymous"></audio>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar">
+      <div class="brand">Auronx<span>.</span>777</div>
+      <nav class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#gustos">Gustos</a>
+        <a href="#musica">Música</a>
+        <a href="#galeria">Galería</a>
+        <a href="#stats">Stats</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#habilidades">Skills</a>
+        <a href="#contacto">Contacto</a>
+        <span class="nav-clock" id="nav-clock"></span>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px">
+        <div class="theme-switcher" aria-label="Selector de tema">
+          <button
+            class="theme-dot"
+            data-theme-btn="overworld"
+            title="Overworld (Pasto)"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-btn="diamond"
+            title="Diamante"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-btn="nether"
+            title="Nether (Lava)"
+          ></button>
+          <button
+            class="theme-dot"
+            data-theme-btn="end"
+            title="End (Portal)"
+          ></button>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menú">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ HEADER / HERO ============ -->
+      <section class="hero" id="inicio">
+        <div class="wrap hero-inner">
+          <div class="profile-ring">
+            <img
+              src="https://i.pinimg.com/originals/e0/e7/58/e0e75837fb5aa857f6aec122775d973e.gif"
+              alt="Foto de perfil de Rae Voss"
+            />
+          </div>
+          <div>
+            <span class="hero-eyebrow">Perfil Personal sobre mi</span>
+            <h1>Auronx.777</h1>
+            <p class="alias">@auronx.777</p>
+            <div class="meta-row">
+              <span class="pill status flicker"
+                >Intento de Desarrollador Web &amp; Jugador L4D2</span
+              >
+              <span class="pill status flicker">67 años</span>
+              <span class="pill status flicker">Ciudad de Natalandia</span>
+              <span class="pill status flicker">Disponible para no hacer nada</span>
+            </div>
+            <p class="quote">"Ayer me comi una naranja, estaba muy rica ("German Garmendia")"</p>
+            <div class="social-grid">
+              <a class="btn solid" href="#contacto">✉ Más información</a>
+              <button class="btn-icon" title="Poker">♠️</button>
+              <button class="btn-icon" title="Diamonds">💎</button>
+              <button class="btn-icon" title="Heart">♥️</button>
+              <button class="btn-icon" title="Pika">♦️</button>
+              <button class="btn-icon" title="Trebor">♣️</button>
+              <button class="btn-icon" title="Chess">♟️</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SOBRE MÍ ============ -->
+      <section id="sobre-mi">
+        <div class="wrap reveal">
+          <span class="sec-label">01 // Quien Soy</span>
+          <h2 class="sec-title">Detras de la Pantalla</h2>
+          <div class="glass about-box">
+            <p>
+              <strong>Hola Soy Auronx</strong>,(In five, four, three, two, one)
+
+              Obie Trice, real name, no gimmicks
+
+              Two trailer park girls go 'round the outside
+              'Round the outside, 'round the outside
+              (Marshall, we've got a bogey)
+              (I'm on the way)
+              Two trailer park girls go round the outside
+              'Round the outside, 'round the outside
+
+              Guess who's back
+              Back again
+              Shady's back
+              Tell a friend
+
+              Guess who's back, guess who's back
+              Guess who's back, guess who's back
+              Guess who's back, guess who's back
+              Guess who's back
+
+              I've created a monster
+              'Cause nobody wants to see Marshall no more
+              They want Shady, I'm chopped liver
+              Well, if you want Shady, this what I'll give ya
+              A little bit of weed mixed with some hard liquor
+              Some vodka that'll jump-start my heart quicker
+              Than a shock when I get shocked at the hospital
+              By the doctor when I'm not co-operating
+              When I'm rocking the table while he's operating (hey!)
+
+              You waited this long, now stop debating
+              'Cause I'm back, I'm on the rag and ovulating
+              I know that you got a job, Ms. Cheney
+              But your husband's heart problem's complicating
+              So the FCC won't let me be
+              Or let me be me, so let me see
+              They try to shut me down on MTV
+              But it feels so empty without me
+              So come on and dip, bum on your lips
+              Jump back, jiggle a hip and wiggle a bit
+              And get ready, 'cause this shit's about to get heavy
+              I just settled all my lawsuits
+              Fuck you, Debbie!
+
+              Now this looks like a job for me
+              So everybody just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              I said this looks like a job for me
+              So everybody, just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              Little hellions, kids feeling rebellious
+              Embarrassed, their parents still listen to Elvis
+              They start feeling like prisoners, helpless
+              'Til someone comes along on a mission and yells: Bitch!
+
+              A visionary, vision is scary
+              Could start a revolution, polluting the airwaves
+              A rebel, so just let me revel and bask
+              In the fact that I got everyone kissing my ass
+              And it's a disaster, such a catastrophe
+              For you to see so damn much of my ass, you asked for me?
+              Well, I'm back (na-na-na-na-na-na-na-na-na-na)
+              Fix your bent antenna, tune it in, and then I'm gonna
+              Enter in and up under your skin like a splinter
+              The center of attention, back for the winter
+              I'm interesting, the best thing since wrestling
+              Infesting in your kid's ears and nesting
+
+              Testing: Attention, please
+              Feel the tension soon as someone mentions me
+              Here's my ten cents, my two cents is free
+              A nuisance, who sent? You sent for me?
+
+              Now this looks like a job for me
+              So everybody just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              I said this looks like a job for me
+              So everybody, just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              A tisk-it a task-it, I'll go tit-for-tat with
+              Anybody who's talking this shit and that shit
+              Chris Kirkpatrick, you can get your ass kicked
+              Worse than them little Limp Bizkit bastards
+              And Moby? You can get stomped by Obie
+              You thirty-six-year-old bald headed fag, blow me
+              You don't know me, you're too old, let go
+              It's over, nobody listens to techno
+              Now let's go, just give me the signal
+              I'll be there with a whole list full of new insults
+              I've been dope, suspenseful with a pencil
+              Ever since Prince turned himself into a symbol
+
+              But, sometimes, the shit just seems
+              Everybody only wants to discuss me
+              So this must mean I'm disgusting
+              But it's just me, I'm just obscene
+              Though I'm not the first king of controversy
+              I am the worst thing since Elvis Presley
+              To do black music so selfishly
+              And use it to get myself wealthy (hey)
+              There's a concept that works
+              Twenty million other white rappers emerge
+              But no matter how many fish in the sea
+              It'd be so empty without me
+
+              Now this looks like a job for me
+              So everybody just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              I said this looks like a job for me
+              So everybody just follow me
+              'Cause we need a little controversy
+              'Cause it feels so empty without me
+
+              Kids!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ GUSTOS ============ -->
+      <section id="gustos">
+        <div class="wrap">
+          <span class="sec-label reveal">02 // Mis Gustos</span>
+          <h2 class="sec-title reveal">Lo que mas me gusta aparte del yupi</h2>
+          <p class="sec-sub reveal">
+            Los temas que mas disfruto.
+          </p>
+          <div class="gustos-grid">
+            <div class="glass gusto-card reveal">
+              <div class="icon">⌨️</div>
+              <div class="label">Programación</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">🎮</div>
+              <div class="label">Videojuegos</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">🎧</div>
+              <div class="label">Música</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">🎌</div>
+              <div class="label">Anime</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">💻</div>
+              <div class="label">Tecnología</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">🤖</div>
+              <div class="label">Inteligencia Artificial</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">☕</div>
+              <div class="label">Café</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">♟️</div>
+              <div class="label">Ajedrez</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">💪</div>
+              <div class="label">Calistenia</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">💜</div>
+              <div class="label">Alguien espacial</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">🎬</div>
+              <div class="label">Películas</div>
+            </div>
+            <div class="glass gusto-card reveal">
+              <div class="icon">📺</div>
+              <div class="label">Series</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CANCIONES FAVORITAS ============ -->
+      <section id="top3">
+        <div class="wrap">
+          <span class="sec-label reveal">03 // Mi playlist</span>
+          <h2 class="sec-title reveal">Canciones Destacadas</h2>
+          <p class="sec-sub reveal">Las diez que más suenan en mi mundo.</p>
+          <div class="top3-grid">
+            <article class="glass top-card reveal" data-index="0">
+              <span class="rank">01</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273f9f27162ab1ed45b8d7a7e98"
+                  alt="Portada Umbrella"
+                />
+              </div>
+              <h4>Umbrella</h4>
+              <p class="artist">Rihanna</p>
+              <span class="genre-tag"> R&B/Soul, Dance/Electrónica, Rock</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">4:36</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="1">
+              <span class="rank">02</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273ebc8cfac8b586bc475b04918"
+                  alt="Dark Paradise"
+                />
+              </div>
+              <h4>Dark Paradise</h4>
+              <p class="artist">Lana Del Rey</p>
+              <span class="genre-tag">Alternativa/independiente</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">4:03</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="2">
+              <span class="rank">03</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b2739abba2e4a7600af6c16988a9"
+                  alt="Soñe"
+                />
+              </div>
+              <h4>Soñe</h4>
+              <p class="artist">Zóe</p>
+              <span class="genre-tag">Rock alternativo</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">3:46</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="3">
+              <span class="rank">04</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i1.sndcdn.com/artworks-1pxKN9EgbIFU-0-t500x500.jpg"
+                  alt="Breaking Dishes"
+                />
+              </div>
+              <h4>Breaking Dishes</h4>
+              <p class="artist">Rihanna</p>
+              <span class="genre-tag">R&B/Soul, Dance/Electrónica, Rock</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">3:20</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="4">
+              <span class="rank">05</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/2/28/Borntodiesingle.png"
+                  alt="Born to Die"
+                />
+              </div>
+              <h4>Born to Die</h4>
+              <p class="artist">Lana Del Rey</p>
+              <span class="genre-tag"> Alternativa/independiente, R&B/Soul, Dance/Electrónica ·</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">4:45</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="5">
+              <span class="rank">06</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b2731f74480c2297fe08d015a3a6"
+                  alt="En nuit"
+                />
+              </div>
+              <h4>En nuit</h4>
+              <p class="artist">VideoClub</p>
+              <span class="genre-tag">Alternativa/independiente, French Indie</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">3:42</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="6">
+              <span class="rank">07</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://cdn-images.dzcdn.net/images/cover/b0e936124f59e669ddba02ebe5893f95/0x1900-000000-80-0-0.jpg"
+                  alt="As It Was"
+                />
+              </div>
+              <h4>As It Was</h4>
+              <p class="artist"> Harry Styles</p>
+              <span class="genre-tag"> Synth pop, New wave</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">2:47</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="7">
+              <span class="rank">08</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/1900x1900-000000-80-0-0.jpg"
+                  alt="Without Me"
+                />
+              </div>
+              <h4>Without Me</h4>
+              <p class="artist">Eminem</p>
+              <span class="genre-tag">Comedy hip hop, Rock</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">4:50</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="8">
+              <span class="rank">09</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i1.sndcdn.com/artworks-3GGgSeqDxnp5-0-t500x500.jpg"
+                  alt="Amor, amor de mis amores"
+                />
+              </div>
+              <h4>Amor, amor de mis amores</h4>
+              <p class="artist">Natalia Lafourcade</p>
+              <span class="genre-tag">Alternativa/independiente, Rock en español, Pop, Tango</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">3:57</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+            <article class="glass top-card reveal" data-index="9">
+              <span class="rank">10</span>
+              <div class="cover-wrap">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b2737e709ce66e549bae1f3983ce"
+                  alt="Quimica Mayor"
+                />
+              </div>
+              <h4>Quimica Mayor</h4>
+              <p class="artist">Mon Laferte</p>
+              <span class="genre-tag">Pop</span>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-time">
+                <span class="t-cur">0:00</span><span class="t-dur">3:51</span>
+              </div>
+              <div class="controls"><button class="t-play">▶</button></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REPRODUCTOR COMPLETO ============ -->
+      <section id="musica">
+        <div class="wrap">
+          <span class="sec-label reveal">04 // Reproductor</span>
+          <h2 class="sec-title reveal">Reproductor</h2>
+          <p class="sec-sub reveal">
+            Algunas de mis canciones Favoritas.
+          </p>
+
+          <div class="glass player reveal">
+            <div class="p-cover">
+              <img class="js-p-cover" src="" alt="Portada actual" />
+            </div>
+
+            <div class="player-center">
+              <div style="display: flex; gap: 18px; align-items: center">
+                <div class="p-info">
+                  <div class="p-title js-p-title"></div>
+                  <div class="p-artist js-p-artist"></div>
+                </div>
+                <div class="visualizer" id="visualizer"></div>
+              </div>
+              <div class="player-controls">
+                <button id="btn-shuffle" title="Aleatorio">🔀</button>
+                <button id="btn-prev" title="Anterior">⏮</button>
+                <button
+                  id="btn-play"
+                  class="play-main"
+                  title="Reproducir/Pausar"
+                >
+                  ▶
+                </button>
+                <button id="btn-stop" title="Detener">⏹</button>
+                <button id="btn-next" title="Siguiente">⏭</button>
+                <button id="btn-repeat" title="Repetir">🔁</button>
+              </div>
+              <div class="progress-row">
+                <span id="cur-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                  <span id="progress-fill"></span>
+                </div>
+                <span id="dur-time">0:00</span>
+              </div>
+            </div>
+
+            <div class="player-right">
+              <div class="volume-row">
+                <span>🔊</span>
+                <input
+                  type="range"
+                  id="volume"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value="0.7"
+                />
+              </div>
+              <select
+                class="playlist-select"
+                id="song-select"
+                aria-label="Elegir canción"
+              ></select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ GALERÍA ============ -->
+      <section id="galeria">
+        <div class="wrap">
+          <span class="sec-label reveal">05 // Random</span>
+          <h2 class="sec-title reveal">Random xd</h2>
+          <p class="sec-sub reveal">
+            Fragmentos de Arte.
+          </p>
+          <div class="gallery-grid">
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/49/31/85/493185cb1f10b6f5a69cf4963cbd9ae7.gif"
+                alt="Toy Chica"
+              />
+              <figcaption class="gal-caption">Toy Chica, es la unica animatronic que usa shorts</figcaption>
+            </figure>
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/82/a4/81/82a48155c58e34a581aa3a24fde6cd58.gif"
+                alt="Yo, cuando se me acerca un peruano"
+              />
+              <figcaption class="gal-caption">Yo, cuando se me acerca un peruano</figcaption>
+            </figure>
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/b1/44/15/b1441564a8b6e53807e9c7223f9245d1.gif"
+                alt="Yo"
+              />
+              <figcaption class="gal-caption">Yo</figcaption>
+            </figure>
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/47/db/ca/47dbcae2d56d75cfef57c57d5c9744a0.gif"
+                alt="Código nocturno"
+              />
+              <figcaption class="gal-caption">Sesión nocturna</figcaption>
+            </figure>
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/bc/b6/b2/bcb6b2b757cdd33c24f2ea62a0baa11e.gif"
+                alt="Love"
+              />
+              <figcaption class="gal-caption">Love</figcaption>
+            </figure>
+            <figure class="gal-item reveal">
+              <img
+                src="https://i.pinimg.com/originals/bd/57/57/bd57573d6007e35b55b95b3fd0ec9658.gif"
+                alt="cubo"
+              />
+              <figcaption class="gal-caption">Cubo de Hielo</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ESTADÍSTICAS ============ -->
+      <section id="stats">
+        <div class="wrap">
+          <span class="sec-label reveal">06 // Estadísticas</span>
+          <h2 class="sec-title reveal">Logros nya</h2>
+          <div class="stats-grid">
+            <div class="glass stat-card reveal">
+              <span class="stat-num" data-target="67">0</span
+              ><span class="stat-label">Juegos completados</span>
+            </div>
+            <div class="glass stat-card reveal">
+              <span class="stat-num" data-target="712">0</span
+              ><span class="stat-label">Canciones Escuchadas</span>
+            </div>
+            <div class="glass stat-card reveal">
+              <span class="stat-num" data-target="0">0</span
+              ><span class="stat-label">Horas Laburando</span>
+            </div>
+            <div class="glass stat-card reveal">
+              <span class="stat-num" data-target="+1000">0</span
+              ><span class="stat-label">Monster tomados</span>
+            </div>
+            <div class="glass stat-card reveal">
+              <span class="stat-num" data-target="+1000">0</span
+              ><span class="stat-label">Pajas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TIMELINE ============ -->
+      <section id="timeline">
+        <div class="wrap">
+          <span class="sec-label reveal">07 // trayectoria</span>
+          <h2 class="sec-title reveal">Línea de tiempo</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="tl-year">2005</span>
+              <h4>Spawne</h4>
+              <p>
+                Agradecido de no spawnear en peru.
+              </p>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">2012</span>
+              <h4>Tenia 6 casi 7 = 67</h4>
+              <p>
+                Six Seven carajo.
+              </p>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">2017</span>
+              <h4>Epoca dorada de yutu</h4>
+              <p>
+                Conoci el chorizo carajo, digo a fernfloo.
+              </p>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">2020</span>
+              <h4>Pajas 24/7</h4>
+              <p>
+                Pandemia de pajas.
+              </p>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">2025</span>
+              <h4>Año del carajo</h4>
+              <p>
+                Me nerfearon por el bien de la trama.
+              </p>
+            </div>
+            <div class="tl-item">
+              <span class="tl-year">Hoy</span>
+              <h4>Hoy</h4>
+              <p>
+                Hoy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HABILIDADES ============ -->
+      <section id="habilidades">
+        <div class="wrap">
+          <span class="sec-label reveal">08 // Habilidades</span>
+          <h2 class="sec-title reveal">Nivel de dominio</h2>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <div class="s-label"><span>HTML</span><span>60%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="95"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>CSS</span><span>25%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="92"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>JavaScript</span><span>70%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="85"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>Python</span><span>70%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="70"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>Windows</span><span>88%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="88"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>Git Hub</span><span>80%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="80"></span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="s-label"><span>Linux</span><span>67%</span></div>
+              <div class="skill-track">
+                <span class="skill-fill" data-level="66"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACTO / REDES ============ -->
+      <section id="contacto">
+        <div class="wrap">
+          <span class="sec-label reveal">09 // contacto</span>
+          <h2 class="sec-title reveal">Hablemos</h2>
+          <p class="sec-sub reveal">
+            Los canales por donde de verdad respondo.
+          </p>
+          <div class="social-grid reveal">
+            <a class="social-btn" href="https://github.com/Auronsx"
+              ><span class="s-icon">🐙</span> GitHub</a
+            >
+            <a class="social-btn" href="https://discord.gg/YuvjdtZD"
+              ><span class="s-icon">🎮</span> Discord</a
+            >
+            <a class="social-btn" href="https://link.clashroyale.com/?supercell_id&p=78-86acbb31-25d8-49ad-a38d-ab6c5d1b31a3"
+              ><span class="s-icon">♟️</span> Clash Royale</a
+            >
+            <a class="social-btn" href="https://open.spotify.com/user/31ute7gs6nl3w2xxqwuhcnzfhpxu?si=340732287df74369"
+              ><span class="s-icon">🎧</span> Spotify</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      RAE.VOSS © 2026 · HTML5, CSS3 &amp; JavaScript puro — sin frameworks.
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
