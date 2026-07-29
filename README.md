@@ -6,10 +6,9 @@ Sitio 100% HTML5 + CSS3 + JavaScript (ES6+), sin frameworks. Funciona abriendo `
 
 ```
 index.html
-css/
-  style.css        → variables, layout y componentes
-  animations.css   → todas las @keyframes
-  responsive.css   → media queries (móvil / tablet / ultrawide)
+Style.css        → variables, layout y componentes
+animations.css   → todas las @keyframes
+responsive.css   → media queries (móvil / tablet / ultrawide)
 js/
   theme.js         → cambio de tema + localStorage
   animations.js    → fondo de partículas, cursor personalizado, ripple
