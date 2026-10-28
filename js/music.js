@@ -14,19 +14,34 @@ const Player = (() => {
      en index.html (data-index="0..9"): mismo orden, título, artista, portada
      y duración que ahí. El campo `src` apunta al MP3 real correspondiente
      dentro de /music/ (los nombres de archivo no siempre coinciden con el
-     título mostrado, p.ej. "Breakin' Dishes.mp3" para "Breaking Dishes"). */
+     título mostrado, p.ej. "Breakin' Dishes.mp3" para "Breaking Dishes").
+     A partir del índice 10 van canciones extra que solo aparecen en el
+     explorador de géneros (genres.js). `cats` decide en qué botón de género
+     sale cada una: "pop" | "bachata" | "reggaeton". */
   const playlist = [
-    { title: "Umbrella",                  artist: "Rihanna",             genre: "R&B/Soul, Dance/Electrónica, Rock",              cover: "https://i.scdn.co/image/ab67616d0000b273f9f27162ab1ed45b8d7a7e98", src: "music/Umbrella.mp3", duration: 276, freq: 220 },
-    { title: "Dark Paradise",             artist: "Lana Del Rey",        genre: "Alternativa/independiente",                      cover: "https://i.scdn.co/image/ab67616d0000b273ebc8cfac8b586bc475b04918", src: "music/Dark Paradise.mp3", duration: 243, freq: 246 },
-    { title: "Soñe",                      artist: "Zóe",                 genre: "Rock alternativo",                               cover: "https://i.scdn.co/image/ab67616d0000b2739abba2e4a7600af6c16988a9", src: "music/Zoé - Soñé (MTV Unplugged).mp3", duration: 226, freq: 262 },
-    { title: "Breaking Dishes",           artist: "Rihanna",             genre: "R&B/Soul, Dance/Electrónica, Rock",              cover: "https://i1.sndcdn.com/artworks-1pxKN9EgbIFU-0-t500x500.jpg", src: "music/Breakin' Dishes.mp3", duration: 200, freq: 294 },
-    { title: "Born to Die",               artist: "Lana Del Rey",        genre: "Alternativa/independiente, R&B/Soul, Dance/Electrónica", cover: "https://upload.wikimedia.org/wikipedia/en/2/28/Borntodiesingle.png", src: "music/Born To Die.mp3", duration: 285, freq: 330 },
-    { title: "En nuit",                   artist: "VideoClub",           genre: "Alternativa/independiente, French Indie",        cover: "https://i.scdn.co/image/ab67616d0000b2731f74480c2297fe08d015a3a6", src: "music/En nuit.mp3", duration: 222, freq: 349 },
-    { title: "As It Was",                 artist: "Harry Styles",        genre: "Synth pop, New wave",                            cover: "https://cdn-images.dzcdn.net/images/cover/b0e936124f59e669ddba02ebe5893f95/0x1900-000000-80-0-0.jpg", src: "music/As It Was.mp3", duration: 167, freq: 392 },
-    { title: "Without Me",                artist: "Eminem",              genre: "Comedy hip hop, Rock",                           cover: "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/1900x1900-000000-80-0-0.jpg", src: "music/Without Me.mp3", duration: 290, freq: 415 },
-    { title: "Amor, amor de mis amores",  artist: "Natalia Lafourcade",  genre: "Alternativa/independiente, Rock en español, Pop, Tango", cover: "https://i1.sndcdn.com/artworks-3GGgSeqDxnp5-0-t500x500.jpg", src: "music/Amor de mis amores.mp3", duration: 237, freq: 440 },
-    { title: "Quimica Mayor",             artist: "Mon Laferte",         genre: "Pop",                                             cover: "https://i.scdn.co/image/ab67616d0000b2737e709ce66e549bae1f3983ce", src: "music/Química Mayor.mp3", duration: 231, freq: 466 },
+    { title: "Umbrella",                  artist: "Rihanna",             genre: "R&B/Soul, Dance/Electrónica, Rock",              cover: "https://i.scdn.co/image/ab67616d0000b273f9f27162ab1ed45b8d7a7e98", src: "music/Umbrella.mp3", duration: 276, freq: 220, cats: ["pop"] },
+    { title: "Dark Paradise",             artist: "Lana Del Rey",        genre: "Alternativa/independiente",                      cover: "https://i.scdn.co/image/ab67616d0000b273ebc8cfac8b586bc475b04918", src: "music/Dark Paradise.mp3", duration: 243, freq: 246, cats: [] },
+    { title: "Soñe",                      artist: "Zóe",                 genre: "Rock alternativo",                               cover: "https://i.scdn.co/image/ab67616d0000b2739abba2e4a7600af6c16988a9", src: "music/Zoé - Soñé (MTV Unplugged).mp3", duration: 226, freq: 262, cats: [] },
+    { title: "Breaking Dishes",           artist: "Rihanna",             genre: "R&B/Soul, Dance/Electrónica, Rock",              cover: "https://i1.sndcdn.com/artworks-1pxKN9EgbIFU-0-t500x500.jpg", src: "music/Breakin' Dishes.mp3", duration: 200, freq: 294, cats: ["pop"] },
+    { title: "Born to Die",               artist: "Lana Del Rey",        genre: "Alternativa/independiente, R&B/Soul, Dance/Electrónica", cover: "https://upload.wikimedia.org/wikipedia/en/2/28/Borntodiesingle.png", src: "music/Born To Die.mp3", duration: 285, freq: 330, cats: [] },
+    { title: "En nuit",                   artist: "VideoClub",           genre: "Alternativa/independiente, French Indie",        cover: "https://i.scdn.co/image/ab67616d0000b2731f74480c2297fe08d015a3a6", src: "music/En nuit.mp3", duration: 222, freq: 349, cats: [] },
+    { title: "As It Was",                 artist: "Harry Styles",        genre: "Synth pop, New wave",                            cover: "https://cdn-images.dzcdn.net/images/cover/b0e936124f59e669ddba02ebe5893f95/0x1900-000000-80-0-0.jpg", src: "music/As It Was.mp3", duration: 167, freq: 392, cats: ["pop"] },
+    { title: "Without Me",                artist: "Eminem",              genre: "Comedy hip hop, Rock",                           cover: "https://cdn-images.dzcdn.net/images/cover/ec3c8ed67427064c70f67e5815b74cef/1900x1900-000000-80-0-0.jpg", src: "music/Without Me.mp3", duration: 290, freq: 415, cats: [] },
+    { title: "Amor, amor de mis amores",  artist: "Natalia Lafourcade",  genre: "Alternativa/independiente, Rock en español, Pop, Tango", cover: "https://i1.sndcdn.com/artworks-3GGgSeqDxnp5-0-t500x500.jpg", src: "music/Amor de mis amores.mp3", duration: 237, freq: 440, cats: ["pop"] },
+    { title: "Quimica Mayor",             artist: "Mon Laferte",         genre: "Pop",                                             cover: "https://i.scdn.co/image/ab67616d0000b2737e709ce66e549bae1f3983ce", src: "music/Química Mayor.mp3", duration: 231, freq: 466, cats: ["pop"] },
+    // Canciones extra (no salen en "Destacadas"; se ven en el explorador por género/artista)
+    { title: "APT.",                      artist: "ROSÉ & Bruno Mars",   genre: "Pop",                                             cover: "https://cdn-images.dzcdn.net/images/cover/258e6042338ce64bb4157c0c94b232ac/0x1900-000000-80-0-0.jpg", src: "music/Song/APT.mp3", duration: 173, freq: 494, cats: ["pop"] },
+    { title: "La Bicicleta",              artist: "Carlos Vives & Shakira", genre: "Pop, Vallenato",                               cover: "https://i.scdn.co/image/ab67616d00001e02eec120f35546507f59f05c41", src: "music/Song/Carlos Vives, Shakira - La Bicicleta - CarlosVivesVEVO.mp3", duration: 238, freq: 523, cats: ["pop"] },
+    { title: "Imitadora",                 artist: "Romeo Santos",        genre: "Bachata",                                         cover: "https://i.scdn.co/image/ab67616d0000b273a676aa01533e6cf5c40b99b6", src: "music/Song/ROMEO SANTOS - IMITADORA - NIKO MUSIC.mp3", duration: 235, freq: 554, cats: ["bachata"] },
+    { title: "Eres Mía",                  artist: "Romeo Santos",        genre: "Bachata",                                         cover: "https://images.genius.com/9beca7913f27ab398c1db7654db25a31.1000x1000x1.png", src: "music/Song/Romeo Santos - Eres Mia - Top Squad.mp3", duration: 251, freq: 587, cats: ["bachata"] },
   ];
+
+  // Portada de respaldo para canciones sin `cover` (nota musical pixelada).
+  const PLACEHOLDER_COVER =
+    "data:image/svg+xml," +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1b2414"/><text x="50" y="66" font-size="52" text-anchor="middle" fill="#5DB94A">♪</text></svg>'
+    );
 
   /* ---------- Estado ---------- */
   const state = {
@@ -127,7 +142,7 @@ const Player = (() => {
     els.durTime.textContent = fmt(track.duration);
     els.select.value = String(state.index);
 
-    els.cover.forEach((el) => (el.src = track.cover));
+    els.cover.forEach((el) => (el.src = track.cover || PLACEHOLDER_COVER));
     els.title.forEach((el) => (el.textContent = track.title));
     els.artist.forEach((el) => (el.textContent = track.artist));
 
@@ -292,6 +307,7 @@ const Player = (() => {
       const idx = Number(card.dataset.index);
       btn.textContent = isPlaying && idx === state.index ? "⏸" : "▶";
     });
+    listeners.forEach((fn) => fn(state.index, isPlaying));
   }
   function updateTop3Highlight() {
     els.top3.forEach((card) => {
@@ -353,7 +369,20 @@ const Player = (() => {
     loadTrack(0, false);
   }
 
-  return { init };
+  /* ---------- API pública (la usa genres.js) ---------- */
+  const listeners = [];
+  // Reproduce/pausa la pista `i`, igual que el botón ▶ de las tarjetas.
+  function playIndex(i) {
+    if (state.index === i) togglePlay();
+    else loadTrack(i, true);
+  }
+  // `fn(index, isPlaying)` se llama cada vez que cambia la pista o el estado.
+  function onChange(fn) {
+    listeners.push(fn);
+    fn(state.index, state.playing);
+  }
+
+  return { init, playlist, playIndex, onChange, PLACEHOLDER_COVER };
 })();
 
 document.addEventListener("DOMContentLoaded", Player.init);
